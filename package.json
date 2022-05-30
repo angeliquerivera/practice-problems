@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "node ./codewars/8kyu/sumOfDiffArray.js"
+    "test": "node ./codewars/7kyu/reverseWords.js"
   },
   "keywords": [],
   "author": "",
