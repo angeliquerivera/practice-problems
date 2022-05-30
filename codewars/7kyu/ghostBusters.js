@@ -1,5 +1,5 @@
 /**
- * `UNSOLVED AS OF 5/30/2022`
+ * `SOLVED`
  * TIMER (UPDATE ONLY ON PAUSE/COMPLETION)
  * REMEMBER TO SPLIT AFTER EVERY SECTION
  * TIME LIMIT: 30 MINS
@@ -16,24 +16,24 @@
  * {@link https://www.codewars.com/kata/5668e3800636a6cd6a000018/train/javascript 7kyu - ghostBusters (whitespace removal)}
  *
  * Oh no! Ghosts have reportedly swarmed the city. It's your job to get rid of them and save the day!
-
-In this kata, strings represent buildings while whitespaces within those strings represent ghosts.
-
-So what are you waiting for? Return the building(string) without any ghosts(whitespaces)!
-
-Example:
-
-ghostBusters("Sky scra per");
-
-Should return:
-
-"Skyscraper"
-
-If the building contains no ghosts, return the string:
-
-"You just wanted my autograph didn't you?"
-
-
+ *
+ * In this kata, strings represent buildings while whitespaces within those strings represent ghosts.
+ *
+ * So what are you waiting for? Return the building(string) without any ghosts(whitespaces)!
+ *
+ * Example:
+ *
+ * ghostBusters("Sky scra per");
+ *
+ * Should return:
+ *
+ * "Skyscraper"
+ *
+ * If the building contains no ghosts, return the string:
+ *
+ * "You just wanted my autograph didn't you?"
+ *
+ *
  */
 
 /**
@@ -55,27 +55,60 @@ If the building contains no ghosts, return the string:
 
 /**
  * APPROACH
+ * Store loop check in variable
  * LOOP THROUGH to find spaces in building str
- *IF statement
-  IF Building has whitespaces, get rid of them using trim method
-  ELSE return string "You just wanted my autograph didn't you?"
-  END LOOP
+ *  GRAB current character
+ *  IF (current character is NOT whitespace)
+ *    Add this char to loop result variable
+ * END LOOP
+ *
+ * IF (starting word is same as result word)
+ *    return string "You just wanted my autograph didn't you?"
+ * ELSE
+ *    return result word
  */
 
 /**
- * CODE BELOW
+ * ANGIE CODE BELOW
  */
 
+// function ghostBusters(building) {
+//   let resultWord = "";
+//   for (let i = 0; i < building.length; i++) {
+//     let currChar = building[i];
+//     if (currChar !== " ") {
+//       resultWord += currChar;
+//     }
+//   }
+
+//   if (resultWord === building) {
+//     return "You just wanted my autograph didn't you?";
+//   } else {
+//     return resultWord;
+//   }
+// }
+
+/**
+ * {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replaceAll MDN String.replaceAll()}
+ * CHRISTIAN CODE BELOW
+ */
 function ghostBusters(building) {
-  for (let i = 0; i < building.length; i++) {
-    let currChar = building[i];
-    if ((currChar = " ")) {
-      return building.trim();
-    } else {
-      return "You just wanted my autograph didn't you?";
-    }
+  const purgedBuilding = building.replaceAll(" ", "");
+
+  if (building === purgedBuilding) {
+    return "You just wanted my autograph didn't you?";
   }
+  return purgedBuilding;
 }
+
+/**
+ * As a one-liner
+ */
+const ghostBusters = (building) =>
+  building === building.replaceAll(" ", "")
+    ? "You just wanted my autograph didn't you?"
+    : building.replaceAll(" ", "");
+
 const result1 = ghostBusters("Sky scra per");
 const result2 = ghostBusters("Factor y");
 const result3 = ghostBusters("BusStation");
