@@ -1,4 +1,14 @@
 /**
+ * `UNSOLVED AS OF 5/30/2022`
+ * * READ:        00:13
+ * NOTES:         00:54
+ * APPROACH:      06:03
+ * CODE:          03:03
+ * TEST:          20:00 - stopped here because time limit
+ * OPTIMIZE:      00:00
+ */
+
+/** 
  * {@link https://www.codewars.com/kata/5259b20d6021e9e14c0010d4/train/javascript 7kyu - reverseWords}
  *
  * Complete the function that accepts a string parameter, and reverses each word in the string. All spaces in the string should be retained.
@@ -53,12 +63,3 @@ const result2 = reverseWords("double  spaces");
 
 console.log(result1);
 console.log(result2);
-
-/**
- * * READ:        00:13
- * NOTES:         00:54
- * APPROACH:      06:03
- * CODE:          03:03
- * TEST:          20:00
- * OPTIMIZE:      00:00
- */
