@@ -79,15 +79,12 @@ Return "Battle Result: Good triumphs over Evil" if good wins, "Battle Result: Ev
  * CODE BELOW
  */
 
-function goodVsEvil(goodGuysStr, badGuysStr) {
-  const goodGuysStr = "1, 2, 3, 3, 4, 10";
-  const badGuysStr = "1, 2, 2, 2, 3, 5, 10";
+function goodVsEvil(good, evil) {
+  for (let i = 0; i < good.length; i++) {
+    let currGoodGuy = good[i];
 
-  for (let i = 0; i < goodGuysStr.length; i++) {
-    let currGoodGuy = goodGuysStr[i];
-
-    for (let j = 0; j < badGuysStr.length; j++) {
-      let currBadGuy = badGuysStr[j];
+    for (let j = 0; j < evil.length; j++) {
+      let currBadGuy = evil[j];
     }
   }
 }
