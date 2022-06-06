@@ -64,27 +64,50 @@ Return "Battle Result: Good triumphs over Evil" if good wins, "Battle Result: Ev
 
 /**
  * APPROACH
- * declare variables for each string param
- * START LOOPS for each string param
- *    grab currValue from each loop
- * END LOOPS
- * declare variables goodGuysCount badGuyscount for sum of numbers in string params
+ * collect all the values of the good and evil forces into two arrays
+ *    goodValues : Number[]
+ *    evilValues : Number[]
+ * Do following for both good and evil input strings:
+ *    split string into array, focusing the "number" of each troop type
+ *    convert each string entry into its corresponding number value by mapping
+ *    get total value of each sides troops by multiplying the quantity of a type of a troop TIMES its worth and adding all values together
  * 3 conditions for IF statement
- *    IF goodGuysCount is greater than badGuyscount, return string "Battle Result: Good triumphs over Evil"
- *    ELSE IF badGuysCount is greater than goodGuysCount, return string "Battle Result: Evil eradicates all trace of Good"
- *    ELSE both sums are equal, return string "Battle Result: No victor on this battlefield"
+ *    IF goodGuysCount is greater than badGuyscount
+ *        return string "Battle Result: Good triumphs over Evil"
+ *    ELSE IF badGuysCount is greater than goodGuysCount
+ *        return string "Battle Result: Evil eradicates all trace of Good"
+ *    ELSE (both sums are equal)
+ *        return string "Battle Result: No victor on this battlefield"
  */
 
 /**
  * CODE BELOW
  */
-
 function goodVsEvil(good, evil) {
-  for (let i = 0; i < good.length; i++) {
-    let currGoodGuy = good[i];
+  const goodValues = [1, 2, 3, 3, 4, 10];
+  const evilValues = [1, 2, 2, 2, 3, 5, 10];
 
-    for (let j = 0; j < evil.length; j++) {
-      let currBadGuy = evil[j];
-    }
+  const goodTotal = good
+    .split(" ")
+    .map((n) => parseInt(n))
+    .reduce(
+      (prevVal, currVal, currIdx) => prevVal + currVal * goodValues[currIdx],
+      0
+    );
+
+  const evilTotal = evil
+    .split(" ")
+    .map((n) => parseInt(n))
+    .reduce(
+      (prevVal, currVal, currIdx) => prevVal + currVal * evilValues[currIdx],
+      0
+    );
+
+  if (goodTotal > evilTotal) {
+    return "Battle Result: Good triumphs over Evil";
+  } else if (goodTotal < evilTotal) {
+    return "Battle Result: Evil eradicates all trace of Good";
+  } else {
+    return "Battle Result: No victor on this battle field";
   }
 }
