@@ -1,5 +1,5 @@
 /**
- * `UNSOLVED AS OF 5/30/2022`
+ * `SOLVED`
  * READ:          00:13
  * NOTES:         00:54
  * APPROACH:      06:03
