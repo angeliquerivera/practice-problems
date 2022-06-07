@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "node ./codewars/6kyu/goodvsEvil.js"
+    "test": "node ./codewars/8kyu/squareSum.js"
   },
   "keywords": [],
   "author": "",
