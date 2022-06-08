@@ -46,10 +46,16 @@ function squareSum(numbers) {
   return squaredNumsSum;
 }
 
-// No map needed
-// Do the squaring on `currVal`
+/**
+ * Do the squaring on `currVal`
+ * No map needed
+ * {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/pow Math.pow()}
+ */
 function squareSum(numbers) {
-  return numbers.reduce((prevVal, currVal) => prevVal + currVal ** 2, 0);
+  return numbers.reduce(
+    (prevVal, currVal) => prevVal + Math.pow(currVal, 2),
+    0
+  );
 }
 
 console.log(squareSum([1, 2]));

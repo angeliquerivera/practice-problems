@@ -40,23 +40,57 @@ For example, when an array is passed like [19, 5, 42, 2, 77], the output should 
 /**
  * CODE BELOW
  */
-function sumTwoSmallestNumbers(numbers) {
-  numbers
-    .sort((a, b) => a - b)
-    .slice(0, 2)
-    .reduce((prevValue, currValue) => prevValue + currValue, 0);
-}
+// function sumTwoSmallestNumbers(numbers) {
+//   numbers
+//     .sort((a, b) => a - b)
+//     .slice(0, 2)
+//     .reduce((prevValue, currValue) => prevValue + currValue, 0);
+// }
 
-//Simplier solution
+/**
+ * TIME COMPLEXITY
+ * O(n) + O(1) + O(1) => O(n + 2)
+ * where n is the length of the ORIGINAL array,
+ * and m is the length of the shortened array
+ */
+
+// Simplier solution
 function sumTwoSmallestNumbers(numbers) {
-  numbers.sort(function (a, b) {
-    return a - b;
-  });
+  numbers.sort((a, b) => a - b);
   return numbers[0] + numbers[1];
 }
 
-console.log(sumTwoSmallestNumbers([5, 8, 12, 19, 22]));
-console.log(sumTwoSmallestNumbers([15, 28, 4, 2, 43]));
-console.log(sumTwoSmallestNumbers([3, 87, 45, 12, 7]));
-console.log(sumTwoSmallestNumbers([23, 71, 33, 82, 1]));
-console.log(sumTwoSmallestNumbers([52, 76, 14, 12, 4]));
+/**
+ * TIME COMPLEXITY
+ * O(n) + O(1) => O(n + 1),
+ * where n is the length of the array
+ */
+
+/**
+ * My old AF answer
+ * DONT USE
+ */
+// function sumTwoSmallestNumbers(numbers) {
+//   let numOne = numbers[0];
+//   let numTwo = numbers[1];
+
+//   for (let i = 2; i < numbers.length; i++) {
+//     let currNum = numbers[i];
+
+//     if (currNum < numOne) {
+//       numOne = currNum;
+//       continue;
+//     }
+//     if (currNum < numTwo) {
+//       numTwo = currNum;
+//       continue;
+//     }
+//   }
+//   return numOne + numTwo;
+// }
+
+console.log(sumTwoSmallestNumbers([5, 8, 12, 19, 22]), 13);
+console.log(sumTwoSmallestNumbers([15, 28, 4, 2, 43]), 6);
+console.log(sumTwoSmallestNumbers([3, 87, 45, 12, 7]), 10);
+console.log(sumTwoSmallestNumbers([23, 71, 33, 82, 1]), 24);
+console.log(sumTwoSmallestNumbers([52, 76, 14, 12, 4]), 16);
