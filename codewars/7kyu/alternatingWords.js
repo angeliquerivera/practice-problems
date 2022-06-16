@@ -1,5 +1,5 @@
 /**
- * `UNSOLVED`
+ * `SOLVED: Reviewed 06-Jun-2022`
  * TIMER (UPDATE ONLY ON PAUSE/COMPLETION)
  * REMEMBER TO SPLIT AFTER EVERY SECTION
  * TIME LIMIT: 30 MINS
@@ -16,8 +16,7 @@
 
 /**
 * {@link https://www.codewars.com/kata/62a611067274990047f431a8/train/javascript 7kyu - alternatingWords}
-*Given a number n and two values firstValue and secondValue, build an array of size n filled with firstValue and secondValue alternating.
-
+* Given a number n and two values firstValue and secondValue, build an array of size n filled with firstValue and secondValue alternating.
 for input:                5, true, false
 expected result would be: [true, false, true, false, true]
 
@@ -33,7 +32,8 @@ expected result would be: [true, false, true, false, true]
 
 /**
  * APPROACH
- * declare variable for blank array, aLternateWordsArray
+ * Create an Array of size n filled with empty elements
+ * 
  * use .fill method on alternateWordsArray with firstValue 
  * use .splice method for secondValue
 
@@ -41,9 +41,16 @@ expected result would be: [true, false, true, false, true]
  * CODE BELOW
  */
 function alternate(n, firstValue, secondValue) {
-  const alternateWordsArray = [];
-  alternateWordsArray.fill(firstValue, 0, n);
-  alternateWordsArray.splice(1, secondValue);
+  const array = Array(n);
+
+  for (let i = 0; i < array.length; i++) {
+    if (i % 2 === 0) {
+      array[i] = firstValue;
+    } else {
+      array[i] = secondValue;
+    }
+  }
+  return array;
 }
 
 console.log(alternate(5, true, false));

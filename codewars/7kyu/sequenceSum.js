@@ -1,5 +1,5 @@
 /**
- * `UNSOLVED`
+ * `SOLVED- REVIEWED 15-Jun-2022`
  * TIMER (UPDATE ONLY ON PAUSE/COMPLETION)
  * REMEMBER TO SPLIT AFTER EVERY SECTION
  * TIME LIMIT: 30 MINS
@@ -14,7 +14,7 @@
 
 /**
 * {@link https://www.codewars.com/kata/586f6741c66d18c22800010a/train/javascript 7kyu - sequenceSum}
-*Your task is to make function, which returns the sum of a sequence of integers.
+* Your task is to make function, which returns the sum of a sequence of integers.
 
 The sequence is defined by 3 non-negative values: begin, end, step (inclusive).
 
@@ -30,16 +30,26 @@ Examples
 
 /**
  * NOTES
- * Return sum of begin, end, and step values
- * IF begin is greater than end, function returns 0
+ * `begin`: starting value
+ * `end`: ending value
+ * `step`: number we add to begin until we get to end
+ * returning sum of all steps
  */
+
+// (begin, end, step) => (1, 11, 2)
+// 1 + 3 + 5 + 7 + 9 + 11 = 36
 
 /**
  * APPROACH
  * IF begin is greater than end
  *    return 0
- * ELSE
- *    return Sum
+ *
+ * declare variable to store sum
+ * WHILE begin is less than or equal to end
+ *     add current begin value to total
+ *     add step value to begin
+ * END WHILE
+ * return sum
  */
 
 /**
@@ -49,9 +59,26 @@ Examples
 const sequenceSum = (begin, end, step) => {
   if (begin > end) {
     return 0;
-  } else {
-    return begin + end + step;
   }
+  let sum = 0;
+  while (begin <= end) {
+    sum += begin; // begin = begin + sum
+    begin += step;
+  }
+  return sum;
+};
+
+const sequenceSumForLoop = (begin, end, step) => {
+  let sum = 0;
+  for (let currStep = begin; currStep <= end; currStep += step) {
+    sum += currStep;
+  }
+  return sum;
+};
+
+const sequenceSumRecursive = (begin, end, step) => {
+  if (begin > end) return 0;
+  return begin + sequenceSumRecursive(begin + step, end, step);
 };
 
 console.log(sequenceSum(2, 6, 2));
