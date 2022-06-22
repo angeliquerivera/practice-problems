@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "node ./codewars/7kyu/sequenceSum.js"
+    "test": "node ./codewars/7kyu/spongebobMeme.js"
   },
   "keywords": [],
   "author": "",
