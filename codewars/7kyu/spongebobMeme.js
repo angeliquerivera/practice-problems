@@ -14,7 +14,7 @@
  */
 
 /**
-* {@link https://www.codewars.com/kata/586f6741c66d18c22800010a/train/javascript 7kyu - spongebobMeme}
+* {@link https://www.codewars.com/kata/5982619d2671576e90000017/train/javascript 7kyu - spongebobMeme}
 * Remember the spongebob meme that is meant to make fun of people by repeating what they say in a mocking way?
 
 You need to create a function that converts the input into this format, with the output being the same string expect there is a pattern of uppercase and lowercase letters.
@@ -30,29 +30,46 @@ output: "StOp mAkInG SpOnGeBoB MeMeS!"
  * NOTES
  * param is string, sentence
  * sentence must alternate between uppercase and lowercase characters (letters)
+ * sentence must start with an uppercase letter
  */
 
 /**
  * APPROACH
- * declare variables for empty string
+ * declare variable to store SPONGEBOB'D string; ""
+ *
  * START LOOP
  *    grab currChar
- *    grab nextChar
+ *    IF curr index is even
+ *      add currChar uppercased to starting variable
+ *    ELSE
+ *      add currChar lowercased to starting variable
  * END LOOP
- * Idea is to toUppercase sentence, then isolate certain characters to add to new string
- * After, toLowercase sentence, isolate every other and add those to new string with conditional
- * return sentence
+ * return spongebobStr
  */
 
 /**
  * CODE BELOW
  */
 function spongeMeme(sentence) {
-  let uppercaseStr = "";
+  let spongebobStr = "";
   for (let i = 0; i < sentence.length; i++) {
     let currChar = sentence[i];
-    let nextChar = sentence[i + 1];
+
+    if (i % 2 === 0) {
+      spongebobStr += currChar.toUpperCase();
+    } else {
+      spongebobStr += currChar.toLowerCase();
+    }
   }
+  return spongebobStr;
 }
 
-console.log(spongeMeme("stop Making spongebob Memes!"));
+const result1 = spongeMeme("stop Making spongebob Memes!");
+const result2 = spongeMeme("STOP SCREAMING AT ME");
+const result3 = spongeMeme("tHiS NeEdS To aLtErNaTe dIfFeReNtLy");
+const result4 = spongeMeme("  UpPeRfIrSt lOwErCaSe   ");
+
+console.log(result1, result1 === "StOp mAkInG SpOnGeBoB MeMeS!");
+console.log(result2, result2 === "StOp sCrEaMiNg aT Me");
+console.log(result3, result3 === "ThIs nEeDs tO AlTeRnAtE DiFfErEnTlY");
+console.log(result4, result4 === "  UpPeRfIrSt lOwErCaSe   ");
